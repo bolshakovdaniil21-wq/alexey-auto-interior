@@ -7,7 +7,7 @@
 <meta name="description" content="Тюнинг и реставрация салона автомобиля в Санкт-Петербурге: подогрев сидений, перетяжка, тюнинг, оклейка плёнкой, контурная подсветка.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap">
 <style>
   :root { --accent: #6d6bff; }
   * { box-sizing: border-box; }
@@ -20,14 +20,18 @@
   img { display: block; }
   .nav-link { transition: color 0.2s ease; }
   .nav-link:hover { color: #f2f2f0 !important; }
-  .cta-primary { transition: opacity 0.2s ease; border: none; cursor: pointer; font-family: inherit; }
-  .cta-primary:hover { opacity: 0.84; }
+  .cta-primary { transition: opacity 0.2s ease, transform 0.2s ease; border: none; cursor: pointer; font-family: inherit; }
+  .cta-primary:hover { opacity: 0.86; transform: translateY(-1px); }
   .cta-ghost { transition: gap 0.2s ease; display:inline-flex; align-items:center; gap:6px; }
   .cta-ghost:hover { gap:10px; }
-  .svc-row { transition: opacity 0.2s ease; cursor: pointer; }
-  .svc-row:hover { opacity: 0.6; }
+  .svc-row { transition: background 0.2s ease, padding-left 0.2s ease; cursor: pointer; }
+  .svc-row:hover { background: rgba(255,255,255,0.03); padding-left: 12px; margin-left: -12px; padding-right: 12px; margin-right: -12px; }
+  .svc-row:hover .svc-num { color: var(--accent); }
   .svc-row:hover .svc-arrow { opacity: 1; transform: translateX(2px); }
+  .svc-num { transition: color 0.2s ease; }
   .svc-arrow { opacity: 0; transition: opacity 0.2s ease, transform 0.2s ease; }
+  .feat-item { transition: transform 0.2s ease; }
+  .feat-item:hover { transform: translateY(-2px); }
   .modal-backdrop { animation: fadeIn 0.15s ease; }
   .modal-panel { animation: riseIn 0.2s ease; }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -35,16 +39,33 @@
   .modal-close { transition: opacity 0.15s ease; background: none; border: none; cursor: pointer; padding: 0; }
   .modal-close:hover { opacity: 0.6; }
   .hidden { display: none !important; }
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr !important; }
+    .stats-grid, .why-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+    .reviews-grid { grid-template-columns: 1fr !important; }
+    .reviews-grid > div { padding: 0 !important; border: none !important; }
+    .contacts-grid { grid-template-columns: 1fr !important; }
+    .main-nav { display: none !important; }
+  }
 </style>
 </head>
 <body>
 
-<div style="width:100%; overflow-x:hidden; background:#0a0a0a;">
+<div style="width:100%; overflow-x:hidden; background:#0a0a0a; position:relative;">
+  <div style="position:fixed; inset:0; z-index:0; pointer-events:none; background-image:radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0); background-size:30px 30px; -webkit-mask-image:linear-gradient(to bottom, black, black 60%, transparent 100%); mask-image:linear-gradient(to bottom, black, black 60%, transparent 100%);"></div>
 
   <!-- NAV -->
-  <div style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:24px clamp(24px,6vw,72px); background:rgba(10,10,10,0.86); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid rgba(255,255,255,0.09);">
-    <span style="font-size:15px; font-weight:600; letter-spacing:-0.01em; color:#f2f2f0;">Alexey</span>
-    <nav style="display:flex; align-items:center; gap:36px;">
+  <div style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:22px clamp(24px,6vw,72px); background:rgba(10,10,10,0.86); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid rgba(255,255,255,0.09);">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M4 16.5V9.5C4 8 5 7 6.5 7h11C19 7 20 8 20 9.5v7" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M2.5 13.5h19" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round"></path>
+        <circle cx="7" cy="17.5" r="1.6" stroke="var(--accent)" stroke-width="1.7"></circle>
+        <circle cx="17" cy="17.5" r="1.6" stroke="var(--accent)" stroke-width="1.7"></circle>
+      </svg>
+      <span style="font-size:15px; font-weight:600; letter-spacing:-0.01em; color:#f2f2f0;">Alexey</span>
+    </div>
+    <nav class="main-nav" style="display:flex; align-items:center; gap:36px;">
       <a class="nav-link" href="#services" style="font-size:13px; color:#8a8a86;">Услуги</a>
       <a class="nav-link" href="#why" style="font-size:13px; color:#8a8a86;">Плюсы</a>
       <a class="nav-link" href="#reviews" style="font-size:13px; color:#8a8a86;">Отзывы</a>
@@ -54,47 +75,62 @@
   </div>
 
   <!-- HERO -->
-  <div style="padding:160px clamp(24px,6vw,72px) 130px;">
-    <div style="max-width:900px;">
-      <div style="font-size:12.5px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#6b6b67; margin-bottom:32px;">Автостудия интерьера — Санкт-Петербург</div>
-      <h1 style="font-size:clamp(44px,6.4vw,88px); font-weight:700; line-height:1.02; letter-spacing:-0.03em; color:#f2f2f0;">Меняем анатомию<br>салона <span style="color:var(--accent);">под вас</span></h1>
-      <p style="margin-top:36px; font-size:19px; line-height:1.6; color:#8a8a86; max-width:480px;">Подогрев и вентиляция сидений, перетяжка, тюнинг, защитная плёнка, контурная подсветка. Гарантия — 12 месяцев.</p>
-      <div style="display:flex; align-items:center; gap:32px; margin-top:48px; flex-wrap:wrap;">
-        <a class="cta-primary" href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/ustanovka_i_remont_podogreva_sideniy_avtomobilya_8273491328" style="display:inline-flex; align-items:center; padding:16px 30px; background:var(--accent); color:#0a0a0a; font-weight:600; font-size:15px;">Написать в Avito</a>
-        <a class="cta-ghost" href="#services" style="font-size:15px; font-weight:500; color:#f2f2f0;">Смотреть услуги
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
-        </a>
-      </div>
-    </div>
-  </div>
+  <div style="position:relative; padding:120px clamp(24px,6vw,72px) 130px;">
+    <div class="hero-grid" style="max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1.3fr 0.9fr; gap:60px; align-items:end;">
 
-  <!-- STATS -->
-  <div style="border-top:1px solid rgba(255,255,255,0.09); border-bottom:1px solid rgba(255,255,255,0.09);">
-    <div style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); max-width:1160px; margin:0 auto;">
-      <div style="padding:44px clamp(20px,3vw,32px); border-right:1px solid rgba(255,255,255,0.09);">
-        <div style="font-size:clamp(28px,3vw,36px); font-weight:700; letter-spacing:-0.02em; color:#f2f2f0;">5.0</div>
-        <div style="margin-top:8px; font-size:12.5px; color:#6b6b67;">Рейтинг на Avito</div>
+      <div>
+        <div style="font-size:12.5px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#6b6b67; margin-bottom:28px;">Автостудия интерьера — Санкт-Петербург</div>
+        <h1 style="font-size:clamp(42px,5.6vw,76px); font-weight:800; line-height:1.02; letter-spacing:-0.03em; color:#f2f2f0;">Меняем анатомию салона <span style="color:var(--accent);">под вас</span></h1>
+        <p style="margin-top:32px; font-size:18px; line-height:1.6; color:#8a8a86; max-width:460px;">Подогрев и вентиляция сидений, перетяжка, тюнинг, защитная плёнка, контурная подсветка. Гарантия — 12 месяцев, без сюрпризов в цене.</p>
+        <div style="display:flex; align-items:center; gap:32px; margin-top:44px; flex-wrap:wrap;">
+          <a class="cta-primary" href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/ustanovka_i_remont_podogreva_sideniy_avtomobilya_8273491328" style="display:inline-flex; align-items:center; padding:16px 30px; background:var(--accent); color:#0a0a0a; font-weight:600; font-size:15px;">Написать в Avito</a>
+          <a class="cta-ghost" href="#services" style="font-size:15px; font-weight:500; color:#f2f2f0;">Смотреть услуги
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
       </div>
-      <div style="padding:44px clamp(20px,3vw,32px); border-right:1px solid rgba(255,255,255,0.09);">
-        <div style="font-size:clamp(28px,3vw,36px); font-weight:700; letter-spacing:-0.02em; color:#f2f2f0;">9</div>
-        <div style="margin-top:8px; font-size:12.5px; color:#6b6b67;">Отзывов клиентов</div>
+
+      <div style="border:1px solid rgba(255,255,255,0.12); padding:32px; background:rgba(255,255,255,0.015);">
+        <div style="display:flex; align-items:baseline; gap:12px;">
+          <span style="font-size:44px; font-weight:800; letter-spacing:-0.02em; color:#f2f2f0;">5.0</span>
+          <div style="display:flex; gap:2px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+          </div>
+        </div>
+        <div style="margin-top:4px; font-size:13px; color:#6b6b67;">9 отзывов на Avito</div>
+
+        <div style="margin-top:26px; padding-top:26px; border-top:1px solid rgba(255,255,255,0.1); display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+          <div>
+            <div style="font-size:20px; font-weight:700; color:#f2f2f0;">5 лет</div>
+            <div style="margin-top:3px; font-size:11.5px; color:#6b6b67;">опыта</div>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:700; color:#f2f2f0;">12 мес</div>
+            <div style="margin-top:3px; font-size:11.5px; color:#6b6b67;">гарантия</div>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:700; color:#f2f2f0;">2022</div>
+            <div style="margin-top:3px; font-size:11.5px; color:#6b6b67;">на Avito с</div>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:700; color:#f2f2f0;">СПб</div>
+            <div style="margin-top:3px; font-size:11.5px; color:#6b6b67;">сервис-центр</div>
+          </div>
+        </div>
       </div>
-      <div style="padding:44px clamp(20px,3vw,32px); border-right:1px solid rgba(255,255,255,0.09);">
-        <div style="font-size:clamp(28px,3vw,36px); font-weight:700; letter-spacing:-0.02em; color:#f2f2f0;">5 лет</div>
-        <div style="margin-top:8px; font-size:12.5px; color:#6b6b67;">Опыта в тюнинге</div>
-      </div>
-      <div style="padding:44px clamp(20px,3vw,32px);">
-        <div style="font-size:clamp(28px,3vw,36px); font-weight:700; letter-spacing:-0.02em; color:#f2f2f0;">12 мес</div>
-        <div style="margin-top:8px; font-size:12.5px; color:#6b6b67;">Гарантия на работу</div>
-      </div>
+
     </div>
   </div>
 
   <!-- SERVICES -->
-  <div id="services" style="padding:150px clamp(24px,6vw,72px);">
-    <div style="max-width:900px; margin:0 auto;">
-      <div style="margin-bottom:64px;">
-        <h2 style="font-size:clamp(30px,3.4vw,42px); font-weight:700; letter-spacing:-0.02em; color:#f2f2f0;">Услуги</h2>
+  <div id="services" style="position:relative; border-top:1px solid rgba(255,255,255,0.09); padding:130px clamp(24px,6vw,72px);">
+    <div style="max-width:980px; margin:0 auto;">
+      <div style="margin-bottom:60px;">
+        <h2 style="font-size:clamp(30px,3.4vw,42px); font-weight:800; letter-spacing:-0.02em; color:#f2f2f0;">Услуги</h2>
         <p style="margin-top:14px; font-size:15px; color:#8a8a86;">Собственный сервисный центр в Санкт-Петербурге · ежедневно 09:00–22:00</p>
       </div>
 
@@ -105,37 +141,37 @@
   </div>
 
   <!-- WHY CHOOSE US -->
-  <div id="why" style="border-top:1px solid rgba(255,255,255,0.09); padding:120px clamp(24px,6vw,72px);">
+  <div id="why" style="position:relative; border-top:1px solid rgba(255,255,255,0.09); padding:120px clamp(24px,6vw,72px);">
     <div style="max-width:1160px; margin:0 auto;">
-      <h2 style="font-size:clamp(30px,3.4vw,42px); font-weight:700; letter-spacing:-0.02em; color:#f2f2f0; margin-bottom:64px;">Почему выбирают нас</h2>
-      <div style="display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:32px;">
+      <h2 style="font-size:clamp(30px,3.4vw,42px); font-weight:800; letter-spacing:-0.02em; color:#f2f2f0; margin-bottom:60px;">Почему выбирают нас</h2>
+      <div class="why-grid" style="display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:32px;">
 
-        <div>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f2f2f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 3v6c0 4.6-3 8.3-7 9-4-.7-7-4.4-7-9V5l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        <div class="feat-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 3v6c0 4.6-3 8.3-7 9-4-.7-7-4.4-7-9V5l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg>
           <h3 style="margin-top:18px; font-size:14px; font-weight:600; color:#f2f2f0;">Гарантия 12 месяцев</h3>
           <p style="margin-top:6px; font-size:12.5px; line-height:1.5; color:#6b6b67;">На всю установку и ремонт</p>
         </div>
 
-        <div>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f2f2f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18"></path></svg>
+        <div class="feat-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18"></path></svg>
           <h3 style="margin-top:18px; font-size:14px; font-weight:600; color:#f2f2f0;">Честная цена</h3>
           <p style="margin-top:6px; font-size:12.5px; line-height:1.5; color:#6b6b67;">Без скрытых доплат</p>
         </div>
 
-        <div>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f2f2f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a4.2 4.2 0 0 0-6.7-1L12 5.7l-2.1-2a4.2 4.2 0 1 0-5.7 6.1L12 18l7.8-8.1a4.2 4.2 0 0 0 1-5.3z"></path></svg>
+        <div class="feat-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a4.2 4.2 0 0 0-6.7-1L12 5.7l-2.1-2a4.2 4.2 0 1 0-5.7 6.1L12 18l7.8-8.1a4.2 4.2 0 0 0 1-5.3z"></path></svg>
           <h3 style="margin-top:18px; font-size:14px; font-weight:600; color:#f2f2f0;">Материалы</h3>
           <p style="margin-top:6px; font-size:12.5px; line-height:1.5; color:#6b6b67;">Только проверенное качество</p>
         </div>
 
-        <div>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f2f2f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"></path></svg>
+        <div class="feat-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"></path></svg>
           <h3 style="margin-top:18px; font-size:14px; font-weight:600; color:#f2f2f0;">Проверка электрики</h3>
           <p style="margin-top:6px; font-size:12.5px; line-height:1.5; color:#6b6b67;">До и после каждой работы</p>
         </div>
 
-        <div>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f2f2f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2"></rect></svg>
+        <div class="feat-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2"></rect></svg>
           <h3 style="margin-top:18px; font-size:14px; font-weight:600; color:#f2f2f0;">Видеонаблюдение</h3>
           <p style="margin-top:6px; font-size:12.5px; line-height:1.5; color:#6b6b67;">Камера в ремонтной зоне</p>
         </div>
@@ -145,23 +181,26 @@
   </div>
 
   <!-- REVIEWS -->
-  <div id="reviews" style="border-top:1px solid rgba(255,255,255,0.09); padding:120px clamp(24px,6vw,72px);">
+  <div id="reviews" style="position:relative; border-top:1px solid rgba(255,255,255,0.09); padding:120px clamp(24px,6vw,72px);">
     <div style="max-width:1100px; margin:0 auto;">
-      <div style="display:flex; align-items:baseline; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:64px;">
-        <h2 style="font-size:clamp(30px,3.4vw,42px); font-weight:700; letter-spacing:-0.02em; color:#f2f2f0;">Отзывы</h2>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:60px;">
+        <h2 style="font-size:clamp(30px,3.4vw,42px); font-weight:800; letter-spacing:-0.02em; color:#f2f2f0;">Отзывы</h2>
         <span style="font-size:14px; color:#6b6b67;">5.0 из 5 · 9 отзывов на Avito</span>
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0;">
-        <div style="padding:0 28px 0 0; display:flex; flex-direction:column; gap:20px;">
+      <div class="reviews-grid" style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0;">
+        <div style="padding:0 28px 0 0; display:flex; flex-direction:column; gap:18px;">
+          <span style="font-size:30px; font-weight:800; color:var(--accent); line-height:1;">"</span>
           <p style="font-size:15px; line-height:1.65; color:#b8b8b4;">«Спасибо огромное Алексею. Быстро и качественно сделал работу. Реставрацию водительского сидения. Ещё раз огромное спасибо.»</p>
           <div style="font-size:13px; color:#6b6b67;">Александр · 7 августа</div>
         </div>
-        <div style="padding:0 28px; border-left:1px solid rgba(255,255,255,0.09); border-right:1px solid rgba(255,255,255,0.09); display:flex; flex-direction:column; gap:20px;">
+        <div style="padding:0 28px; border-left:1px solid rgba(255,255,255,0.09); border-right:1px solid rgba(255,255,255,0.09); display:flex; flex-direction:column; gap:18px;">
+          <span style="font-size:30px; font-weight:800; color:var(--accent); line-height:1;">"</span>
           <p style="font-size:15px; line-height:1.65; color:#b8b8b4;">«Обратился с установкой поясничного упора в новое авто. Сделали быстро и качественно. Очень был рад тому, как общаются с клиентами.»</p>
           <div style="font-size:13px; color:#6b6b67;">Руслан Гусейнов · 22 июля</div>
         </div>
-        <div style="padding:0 0 0 28px; display:flex; flex-direction:column; gap:20px;">
+        <div style="padding:0 0 0 28px; display:flex; flex-direction:column; gap:18px;">
+          <span style="font-size:30px; font-weight:800; color:var(--accent); line-height:1;">"</span>
           <p style="font-size:15px; line-height:1.65; color:#b8b8b4;">«Всё хорошо, спасибо.»</p>
           <div style="font-size:13px; color:#6b6b67;">Максим · 30 июля</div>
         </div>
@@ -170,14 +209,14 @@
   </div>
 
   <!-- CONTACT / FOOTER -->
-  <div id="contacts" style="border-top:1px solid rgba(255,255,255,0.09); padding:130px clamp(24px,6vw,72px) 0;">
+  <div id="contacts" style="position:relative; border-top:1px solid rgba(255,255,255,0.09); padding:130px clamp(24px,6vw,72px) 0;">
     <div style="max-width:560px; margin:0 auto; text-align:center;">
-      <h2 style="font-size:clamp(30px,3.8vw,46px); font-weight:700; letter-spacing:-0.02em; color:#f2f2f0; line-height:1.1;">Готовы обновить салон?</h2>
+      <h2 style="font-size:clamp(30px,3.8vw,46px); font-weight:800; letter-spacing:-0.02em; color:#f2f2f0; line-height:1.1;">Готовы обновить салон?</h2>
       <p style="margin-top:16px; font-size:16px; line-height:1.6; color:#8a8a86;">Напишите нам — отвечаем около часа и подбираем решение под ваш автомобиль.</p>
       <a class="cta-primary" href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/ustanovka_i_remont_podogreva_sideniy_avtomobilya_8273491328" style="display:inline-flex; align-items:center; margin-top:36px; padding:16px 32px; background:var(--accent); color:#0a0a0a; font-weight:600; font-size:15px;">Написать в Avito</a>
     </div>
 
-    <div style="max-width:1160px; margin:110px auto 0; padding-top:36px; padding-bottom:36px; border-top:1px solid rgba(255,255,255,0.09); display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; text-align:center;">
+    <div class="contacts-grid" style="max-width:1160px; margin:110px auto 0; padding-top:36px; padding-bottom:36px; border-top:1px solid rgba(255,255,255,0.09); display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; text-align:center;">
       <div>
         <div style="font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#54544f; margin-bottom:8px;">Адрес</div>
         <div style="font-size:13.5px; color:#8a8a86;">Санкт-Петербург, Плесецкая ул., 10</div>
@@ -229,16 +268,16 @@
   services.forEach(function (s) {
     var row = document.createElement('div');
     row.className = 'svc-row';
-    row.style.cssText = 'display:flex; align-items:baseline; justify-content:space-between; gap:20px; padding:24px 0; border-bottom:1px solid rgba(255,255,255,0.09);';
+    row.style.cssText = 'display:flex; align-items:center; justify-content:space-between; gap:24px; padding:26px 0; border-bottom:1px solid rgba(255,255,255,0.09);';
     row.innerHTML =
-      '<div style="display:flex; align-items:baseline; gap:20px; min-width:0;">' +
-        '<span style="font-size:12.5px; font-weight:600; color:#54544f; flex-shrink:0;">' + s.num + '</span>' +
+      '<div style="display:flex; align-items:center; gap:26px; min-width:0;">' +
+        '<span class="svc-num" style="font-size:26px; font-weight:800; color:#39393a; flex-shrink:0; width:44px; letter-spacing:-0.01em;">' + s.num + '</span>' +
         '<div>' +
           '<h3 style="font-size:17px; font-weight:600; color:#f2f2f0;">' + s.title + '</h3>' +
           '<p style="margin-top:4px; font-size:13px; line-height:1.5; color:#6b6b67;">' + s.short + '</p>' +
         '</div>' +
       '</div>' +
-      '<div style="display:flex; align-items:baseline; gap:10px; flex-shrink:0;">' +
+      '<div style="display:flex; align-items:center; gap:10px; flex-shrink:0;">' +
         '<span style="font-size:15px; font-weight:600; color:#f2f2f0; white-space:nowrap;">' + s.price + '</span>' +
         '<svg class="svc-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8a8a86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>' +
       '</div>';
