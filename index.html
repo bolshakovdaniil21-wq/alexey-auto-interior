@@ -3,300 +3,706 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alexey — Автостудия интерьера</title>
-<meta name="description" content="Тюнинг и реставрация салона автомобиля в Санкт-Петербурге: подогрев сидений, перетяжка, тюнинг, оклейка плёнкой, контурная подсветка.">
+<title>Alexey — Автостудия интерьера в Санкт-Петербурге</title>
+<meta name="description" content="Тюнинг и реставрация салона автомобиля в Санкт-Петербурге: подогрев сидений, перетяжка, оклейка плёнкой, контурная подсветка. Рейтинг 5.0, гарантия 12 месяцев.">
+<meta name="theme-color" content="#0c0a08">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alexey — Автостудия интерьера в Санкт-Петербурге">
+<meta property="og:description" content="Тюнинг и реставрация салона автомобиля: подогрев сидений, перетяжка, оклейка плёнкой, контурная подсветка. Рейтинг 5.0 на Avito, гарантия 12 месяцев.">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%230a0a0a'/%3E%3Cpath d='M4 16.5V9.5C4 8 5 7 6.5 7h11C19 7 20 8 20 9.5v7' stroke='%236d6bff' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3Cpath d='M2.5 13.5h19' stroke='%236d6bff' stroke-width='1.8' stroke-linecap='round'/%3E%3Ccircle cx='7' cy='17.5' r='1.7' stroke='%236d6bff' stroke-width='1.8'/%3E%3Ccircle cx='17' cy='17.5' r='1.7' stroke='%236d6bff' stroke-width='1.8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Alexey — Автостудия интерьера",
+  "address": { "@type": "PostalAddress", "streetAddress": "Плесецкая ул., 10", "addressLocality": "Санкт-Петербург", "addressCountry": "RU" },
+  "areaServed": "Санкт-Петербург",
+  "openingHours": "Mo-Su 09:00-22:00",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "9" },
+  "priceRange": "от 5 000 ₽"
+}
+</script>
 <style>
-  :root { --accent: #6d6bff; }
+  :root {
+    --accent: #c76a3b;
+    --accent-2: #e2a154;
+    --accent-ink: #0c0a08;
+    --bg: #0c0a08;
+    --text: #f3ede4;
+    --text-dim: #ab9f8e;
+    --text-faint: #756b5e;
+    --text-ghost: #3d372f;
+    --line: rgba(255,245,230,0.09);
+    --line-strong: rgba(255,245,230,0.15);
+    --surface: rgba(255,245,230,0.02);
+    --radius: 2px;
+  }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; font-family: 'Onest', -apple-system, 'SF Pro Display', 'Segoe UI', sans-serif; background: #0a0a0a; color: #f2f2f0; -webkit-font-smoothing: antialiased; }
-  a { text-decoration: none; color: #f2f2f0; }
-  a:hover { color: #8a8a86; }
-  h1, h2, h3 { margin: 0; font-family: 'Onest', -apple-system, sans-serif; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+  body { margin: 0; font-family: 'Manrope', -apple-system, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  h1, h2, h3 { margin: 0; font-family: 'Unbounded', -apple-system, sans-serif; }
   p { margin: 0; }
-  img { display: block; }
-  .nav-link { transition: color 0.2s ease; }
-  .nav-link:hover { color: #f2f2f0 !important; }
-  .cta-primary { transition: opacity 0.2s ease, transform 0.2s ease; border: none; cursor: pointer; font-family: inherit; }
-  .cta-primary:hover { opacity: 0.86; transform: translateY(-1px); }
-  .cta-ghost { transition: gap 0.2s ease; display:inline-flex; align-items:center; gap:6px; }
-  .cta-ghost:hover { gap:10px; }
-  .svc-row { transition: background 0.2s ease, padding-left 0.2s ease; cursor: pointer; }
+  img, svg { display: block; max-width: 100%; }
+  a { text-decoration: none; color: var(--text); }
+  button { font-family: inherit; }
+  ::selection { background: rgba(199,106,59,0.4); color: #fff; }
+
+  .skip-link { position: absolute; top: -100px; left: 16px; z-index: 200; background: var(--accent); color: var(--accent-ink); padding: 12px 20px; font-weight: 600; font-size: 14px; transition: top 0.2s ease; }
+  .skip-link:focus { top: 16px; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 1px;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding-left: clamp(20px,5vw,72px); padding-right: clamp(20px,5vw,72px); }
+  .bg-grid { position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 30px 30px; -webkit-mask-image: linear-gradient(to bottom, black, black 60%, transparent 100%); mask-image: linear-gradient(to bottom, black, black 60%, transparent 100%); }
+
+  /* Header */
+  .site-header { position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px clamp(20px,5vw,72px); background: rgba(10,10,10,0.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; font-family: 'Unbounded', sans-serif; }
+  .main-nav { display: flex; align-items: center; gap: 34px; }
+  .main-nav a { font-size: 13px; color: var(--text-dim); transition: color 0.2s ease; position: relative; padding: 4px 0; }
+  .main-nav a:hover { color: var(--text); }
+  .main-nav a[aria-current="page"] { color: var(--text); }
+  .main-nav a[aria-current="page"]::after { content: ''; position: absolute; left: 0; right: 0; bottom: -3px; height: 2px; background: var(--accent); }
+  .header-cta { font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+  .header-cta:hover { color: var(--text-dim); }
+  .hamburger { display: none; width: 36px; height: 36px; border: none; background: none; cursor: pointer; padding: 0; align-items: center; justify-content: center; }
+  .hamburger span { position: relative; width: 18px; height: 2px; background: var(--text); display: block; transition: transform 0.25s ease, opacity 0.25s ease; }
+  .hamburger span::before, .hamburger span::after { content: ''; position: absolute; left: 0; width: 18px; height: 2px; background: var(--text); transition: transform 0.25s ease, top 0.25s ease; }
+  .hamburger span::before { top: -6px; }
+  .hamburger span::after { top: 6px; }
+  .hamburger[aria-expanded="true"] span { background: transparent; }
+  .hamburger[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+  .hamburger[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
+
+  .mobile-menu { position: fixed; inset: 0; z-index: 55; background: var(--bg); padding: 96px 28px 40px; display: none; flex-direction: column; gap: 28px; }
+  .mobile-menu.is-open { display: flex; }
+  .mobile-menu a { font-size: 22px; font-weight: 600; }
+  .mobile-menu .header-cta { margin-top: 12px; display: inline-flex; padding: 16px 28px; background: var(--accent); color: var(--accent-ink); font-size: 15px; width: fit-content; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 30px; background: linear-gradient(120deg, var(--accent), var(--accent-2)); color: var(--accent-ink); font-weight: 600; font-size: 15px; border: none; cursor: pointer; transition: opacity 0.2s ease, transform 0.2s ease; }
+  .btn:hover { opacity: 0.86; transform: translateY(-1px); }
+  .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 500; color: var(--text); background: none; border: none; cursor: pointer; padding: 0; transition: gap 0.2s ease; }
+  .btn-ghost:hover { gap: 10px; }
+
+  /* Hero */
+  .hero { position: relative; padding: clamp(70px,10vw,120px) 0 clamp(70px,10vw,130px); }
+  .hero-grid { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 60px; align-items: end; }
+  .eyebrow { font-size: 12.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 28px; }
+  .hero h1 { font-size: clamp(36px,5.6vw,76px); font-weight: 800; line-height: 1.03; letter-spacing: -0.03em; }
+  .hero p.lede { margin-top: 28px; font-size: 18px; line-height: 1.6; color: var(--text-dim); max-width: 460px; }
+  .hero-actions { display: flex; align-items: center; gap: 32px; margin-top: 40px; flex-wrap: wrap; }
+
+  .trust-card { border: 1px solid var(--line-strong); padding: 32px; background: var(--surface); }
+  .trust-rating { display: flex; align-items: baseline; gap: 12px; }
+  .trust-rating strong { font-family: 'Unbounded', sans-serif; font-size: 40px; font-weight: 700; letter-spacing: -0.01em; }
+  .stars { display: flex; gap: 2px; }
+  .trust-sub { margin-top: 4px; font-size: 13px; color: var(--text-faint); }
+  .trust-facts { margin-top: 26px; padding-top: 26px; border-top: 1px solid var(--line-strong); display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .trust-facts div b { display: block; font-family: 'Unbounded', sans-serif; font-size: 17px; font-weight: 600; }
+  .trust-facts div span { display: block; margin-top: 3px; font-size: 11.5px; color: var(--text-faint); }
+
+  /* Sections */
+  section { position: relative; padding: clamp(70px,9vw,130px) 0; border-top: 1px solid var(--line); }
+  .section-head { margin-bottom: 56px; }
+  .section-head h2 { font-size: clamp(28px,3.4vw,42px); font-weight: 800; letter-spacing: -0.02em; }
+  .section-head p { margin-top: 14px; font-size: 15px; color: var(--text-dim); }
+  .section-head-row { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 56px; }
+
+  /* Services */
+  .services-inner { max-width: 900px; }
+  .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+  .filter-tab { padding: 9px 18px; border: 1px solid var(--line-strong); background: none; color: var(--text-dim); font-size: 13px; font-weight: 500; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
+  .filter-tab:hover { border-color: rgba(255,255,255,0.3); color: var(--text); }
+  .filter-tab[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: var(--accent-ink); }
+  .filter-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+  .svc-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--line); width: 100%; background: none; border-left: none; border-right: none; border-top: none; cursor: pointer; text-align: left; color: inherit; transition: background 0.2s ease, padding-left 0.2s ease, opacity 0.2s ease; }
   .svc-row:hover { background: rgba(255,255,255,0.03); padding-left: 12px; margin-left: -12px; padding-right: 12px; margin-right: -12px; }
   .svc-row:hover .svc-num { color: var(--accent); }
   .svc-row:hover .svc-arrow { opacity: 1; transform: translateX(2px); }
-  .svc-num { transition: color 0.2s ease; }
+  .svc-row.is-hidden { display: none; }
+  .svc-left { display: flex; align-items: center; gap: 26px; min-width: 0; }
+  .svc-num { font-family: 'Unbounded', sans-serif; font-size: 22px; font-weight: 600; color: var(--text-ghost); flex-shrink: 0; width: 44px; letter-spacing: -0.01em; transition: color 0.2s ease; }
+  .svc-title { font-size: 17px; font-weight: 600; }
+  .svc-desc { margin-top: 4px; font-size: 13px; line-height: 1.5; color: var(--text-faint); }
+  .svc-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .svc-price { font-size: 15px; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .svc-arrow { opacity: 0; transition: opacity 0.2s ease, transform 0.2s ease; }
+  .svc-note { margin-top: 32px; font-size: 13px; line-height: 1.6; color: var(--text-faint); }
+
+  /* Why */
+  .why-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 32px; }
   .feat-item { transition: transform 0.2s ease; }
   .feat-item:hover { transform: translateY(-2px); }
-  .modal-backdrop { animation: fadeIn 0.15s ease; }
-  .modal-panel { animation: riseIn 0.2s ease; }
+  .feat-item h3 { margin-top: 18px; font-size: 14px; font-weight: 600; }
+  .feat-item p { margin-top: 6px; font-size: 12.5px; line-height: 1.5; color: var(--text-faint); }
+
+  /* Reviews */
+  .reviews-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0; }
+  .review-card { padding: 0 28px; display: flex; flex-direction: column; gap: 18px; border-left: 1px solid var(--line); }
+  .review-card:first-child { padding-left: 0; border-left: none; }
+  .review-card:last-child { padding-right: 0; }
+  .review-quote { font-family: 'Unbounded', sans-serif; font-size: 26px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .review-text { font-size: 15px; line-height: 1.65; color: #d8cec0; }
+  .review-meta { font-size: 13px; color: var(--text-faint); }
+
+  /* FAQ */
+  .faq-list { max-width: 760px; }
+  .faq-item { border-bottom: 1px solid var(--line); }
+  .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 0; font-size: 16px; font-weight: 600; cursor: pointer; list-style: none; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover { color: var(--text-dim); }
+  .faq-chevron { flex-shrink: 0; transition: transform 0.25s ease; color: var(--text-faint); }
+  .faq-item[open] .faq-chevron { transform: rotate(180deg); color: var(--accent); }
+  .faq-answer { padding: 0 0 26px; font-size: 14.5px; line-height: 1.7; color: var(--text-dim); max-width: 620px; }
+
+  /* Contact + Form */
+  .contact-inner { max-width: 560px; text-align: center; margin: 0 auto; }
+  .contact-inner h2 { font-size: clamp(30px,3.8vw,46px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .contact-inner p { margin-top: 16px; font-size: 16px; line-height: 1.6; color: var(--text-dim); }
+
+  .lead-form { max-width: 460px; margin: 44px auto 0; text-align: left; }
+  .form-row { margin-bottom: 18px; }
+  .form-row label { display: block; font-size: 12.5px; font-weight: 600; letter-spacing: 0.03em; color: var(--text-dim); margin-bottom: 8px; }
+  .form-row input, .form-row select, .form-row textarea {
+    width: 100%; padding: 13px 14px; background: var(--surface); border: 1px solid var(--line-strong); color: var(--text);
+    font-family: inherit; font-size: 14.5px; transition: border-color 0.2s ease;
+  }
+  .form-row input::placeholder, .form-row textarea::placeholder { color: var(--text-faint); }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--accent); outline: none; }
+  .form-row textarea { resize: vertical; min-height: 90px; }
+  .form-row.has-error input, .form-row.has-error select { border-color: #ff5c5c; }
+  .field-error { margin-top: 7px; font-size: 12.5px; color: #ff8080; display: none; }
+  .form-row.has-error .field-error { display: block; }
+  .form-submit-row { margin-top: 26px; }
+  .form-submit-row .btn { width: 100%; }
+  .spinner { width: 16px; height: 16px; border: 2px solid rgba(10,10,10,0.35); border-top-color: var(--accent-ink); border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
+  .btn.is-loading .spinner { display: inline-block; }
+  .btn.is-loading .btn-label { opacity: 0.7; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .form-success { display: none; text-align: center; padding: 36px 28px; border: 1px solid var(--line-strong); background: var(--surface); margin-top: 44px; }
+  .form-success.is-visible { display: block; }
+  .lead-form.is-hidden { display: none; }
+  .form-success svg { margin: 0 auto 16px; color: var(--accent); }
+  .form-success h3 { font-size: 18px; font-weight: 700; }
+  .form-success p { margin-top: 8px; font-size: 13.5px; color: var(--text-dim); line-height: 1.6; }
+  .form-success a { color: var(--accent); font-weight: 600; }
+  .form-note { margin-top: 14px; font-size: 12px; color: var(--text-faint); }
+
+  .contacts-grid { max-width: 1180px; margin: 100px auto 0; padding-top: 36px; padding-bottom: 36px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; text-align: center; }
+  .contacts-grid .label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-ghost); margin-bottom: 8px; }
+  .contacts-grid .value { font-size: 13.5px; color: var(--text-dim); }
+
+  .site-footer-bottom { padding: 28px 0 40px; text-align: center; font-size: 12px; color: var(--text-ghost); }
+
+  /* Modal */
+  .modal-backdrop { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; padding: 24px; animation: fadeIn 0.15s ease; }
+  .modal-backdrop.is-open { display: flex; }
+  .modal-panel { position: relative; width: 100%; max-width: 480px; max-height: 86vh; overflow-y: auto; background: #16110d; border: 1px solid var(--line-strong); padding: 40px; animation: riseIn 0.2s ease; }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-  .modal-close { transition: opacity 0.15s ease; background: none; border: none; cursor: pointer; padding: 0; }
+  .modal-close { position: absolute; top: 24px; right: 24px; background: none; border: none; cursor: pointer; padding: 4px; color: var(--text); transition: opacity 0.15s ease; }
   .modal-close:hover { opacity: 0.6; }
-  .hidden { display: none !important; }
+  .modal-num { font-size: 12.5px; font-weight: 600; color: var(--text-ghost); }
+  .modal-title { margin-top: 12px; font-size: 24px; font-weight: 700; letter-spacing: -0.01em; padding-right: 28px; }
+  .modal-price { margin-top: 10px; font-size: 18px; font-weight: 600; color: var(--accent); }
+  .modal-detail { margin-top: 18px; font-size: 14px; line-height: 1.65; color: var(--text-dim); }
+  .modal-panel .btn { width: 100%; margin-top: 28px; }
+
   @media (max-width: 860px) {
-    .hero-grid { grid-template-columns: 1fr !important; }
-    .stats-grid, .why-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
-    .reviews-grid { grid-template-columns: 1fr !important; }
-    .reviews-grid > div { padding: 0 !important; border: none !important; }
-    .contacts-grid { grid-template-columns: 1fr !important; }
-    .main-nav { display: none !important; }
+    .main-nav, .header-cta { display: none; }
+    .hamburger { display: flex; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .reviews-grid { grid-template-columns: 1fr; gap: 32px; }
+    .review-card { padding: 0 !important; border: none !important; }
+    .contacts-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .trust-facts { grid-template-columns: 1fr 1fr; }
+    .svc-num { width: 32px; font-size: 20px; }
+    .svc-left { gap: 16px; }
   }
 </style>
 </head>
 <body>
 
-<div style="width:100%; overflow-x:hidden; background:#0a0a0a; position:relative;">
-  <div style="position:fixed; inset:0; z-index:0; pointer-events:none; background-image:radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0); background-size:30px 30px; -webkit-mask-image:linear-gradient(to bottom, black, black 60%, transparent 100%); mask-image:linear-gradient(to bottom, black, black 60%, transparent 100%);"></div>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+<div class="bg-grid" aria-hidden="true"></div>
 
-  <!-- NAV -->
-  <div style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:22px clamp(24px,6vw,72px); background:rgba(10,10,10,0.86); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid rgba(255,255,255,0.09);">
-    <div style="display:flex; align-items:center; gap:10px;">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <path d="M4 16.5V9.5C4 8 5 7 6.5 7h11C19 7 20 8 20 9.5v7" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
-        <path d="M2.5 13.5h19" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round"></path>
-        <circle cx="7" cy="17.5" r="1.6" stroke="var(--accent)" stroke-width="1.7"></circle>
-        <circle cx="17" cy="17.5" r="1.6" stroke="var(--accent)" stroke-width="1.7"></circle>
-      </svg>
-      <span style="font-size:15px; font-weight:600; letter-spacing:-0.01em; color:#f2f2f0;">Alexey</span>
-    </div>
-    <nav class="main-nav" style="display:flex; align-items:center; gap:36px;">
-      <a class="nav-link" href="#services" style="font-size:13px; color:#8a8a86;">Услуги</a>
-      <a class="nav-link" href="#why" style="font-size:13px; color:#8a8a86;">Плюсы</a>
-      <a class="nav-link" href="#reviews" style="font-size:13px; color:#8a8a86;">Отзывы</a>
-      <a class="nav-link" href="#contacts" style="font-size:13px; color:#8a8a86;">Контакты</a>
-    </nav>
-    <a href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/ustanovka_i_remont_podogreva_sideniy_avtomobilya_8273491328" style="font-size:13px; font-weight:600; color:#f2f2f0;">Написать →</a>
-  </div>
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Alexey — на главную">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 16.5V9.5C4 8 5 7 6.5 7h11C19 7 20 8 20 9.5v7" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M2.5 13.5h19" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round"></path>
+      <circle cx="7" cy="17.5" r="1.6" stroke="var(--accent)" stroke-width="1.7"></circle>
+      <circle cx="17" cy="17.5" r="1.6" stroke="var(--accent)" stroke-width="1.7"></circle>
+    </svg>
+    Alexey
+  </a>
+  <nav class="main-nav" aria-label="Основная навигация">
+    <a href="#services" data-nav-link>Услуги</a>
+    <a href="#why" data-nav-link>Плюсы</a>
+    <a href="#reviews" data-nav-link>Отзывы</a>
+    <a href="#faq" data-nav-link>Вопросы</a>
+    <a href="#contacts" data-nav-link>Контакты</a>
+  </nav>
+  <a class="header-cta" href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/ustanovka_i_remont_podogreva_sideniy_avtomobilya_8273491328">Написать →</a>
+  <button class="hamburger" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Открыть меню"><span></span></button>
+</header>
 
-  <!-- HERO -->
-  <div style="position:relative; padding:120px clamp(24px,6vw,72px) 130px;">
-    <div class="hero-grid" style="max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1.3fr 0.9fr; gap:60px; align-items:end;">
+<nav class="mobile-menu" id="mobileMenu" aria-label="Мобильная навигация">
+  <a href="#services" data-mobile-link>Услуги</a>
+  <a href="#why" data-mobile-link>Плюсы</a>
+  <a href="#reviews" data-mobile-link>Отзывы</a>
+  <a href="#faq" data-mobile-link>Вопросы</a>
+  <a href="#contacts" data-mobile-link>Контакты</a>
+  <a class="header-cta" href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/ustanovka_i_remont_podogreva_sideniy_avtomobilya_8273491328">Написать в Avito</a>
+</nav>
 
+<main id="main">
+
+  <section class="hero" id="top" style="border-top:none;">
+    <div class="wrap hero-grid">
       <div>
-        <div style="font-size:12.5px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#6b6b67; margin-bottom:28px;">Автостудия интерьера — Санкт-Петербург</div>
-        <h1 style="font-size:clamp(42px,5.6vw,76px); font-weight:800; line-height:1.02; letter-spacing:-0.03em; color:#f2f2f0;">Меняем анатомию салона <span style="color:var(--accent);">под вас</span></h1>
-        <p style="margin-top:32px; font-size:18px; line-height:1.6; color:#8a8a86; max-width:460px;">Подогрев и вентиляция сидений, перетяжка, тюнинг, защитная плёнка, контурная подсветка. Гарантия — 12 месяцев, без сюрпризов в цене.</p>
-        <div style="display:flex; align-items:center; gap:32px; margin-top:44px; flex-wrap:wrap;">
-          <a class="cta-primary" href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/ustanovka_i_remont_podogreva_sideniy_avtomobilya_8273491328" style="display:inline-flex; align-items:center; padding:16px 30px; background:var(--accent); color:#0a0a0a; font-weight:600; font-size:15px;">Написать в Avito</a>
-          <a class="cta-ghost" href="#services" style="font-size:15px; font-weight:500; color:#f2f2f0;">Смотреть услуги
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+        <p class="eyebrow">Автостудия интерьера — Санкт-Петербург</p>
+        <h1>Меняем анатомию салона <span style="color:var(--accent);">под вас</span></h1>
+        <p class="lede">Подогрев и вентиляция сидений, перетяжка, тюнинг, защитная плёнка, контурная подсветка. Гарантия — 12 месяцев, без сюрпризов в цене.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/ustanovka_i_remont_podogreva_sideniy_avtomobilya_8273491328">Написать в Avito</a>
+          <a class="btn-ghost" href="#services">Смотреть услуги
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
           </a>
         </div>
       </div>
 
-      <div style="border:1px solid rgba(255,255,255,0.12); padding:32px; background:rgba(255,255,255,0.015);">
-        <div style="display:flex; align-items:baseline; gap:12px;">
-          <span style="font-size:44px; font-weight:800; letter-spacing:-0.02em; color:#f2f2f0;">5.0</span>
-          <div style="display:flex; gap:2px;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+      <div class="trust-card">
+        <div class="trust-rating">
+          <strong>5.0</strong>
+          <div class="stars" role="img" aria-label="Рейтинг 5.0 из 5">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--accent)" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
           </div>
         </div>
-        <div style="margin-top:4px; font-size:13px; color:#6b6b67;">9 отзывов на Avito</div>
+        <p class="trust-sub">9 отзывов на Avito</p>
+        <div class="trust-facts">
+          <div><b>5 лет</b><span>опыта</span></div>
+          <div><b>12 мес</b><span>гарантия</span></div>
+          <div><b>2022</b><span>на Avito с</span></div>
+          <div><b>СПб</b><span>сервис-центр</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div style="margin-top:26px; padding-top:26px; border-top:1px solid rgba(255,255,255,0.1); display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-          <div>
-            <div style="font-size:20px; font-weight:700; color:#f2f2f0;">5 лет</div>
-            <div style="margin-top:3px; font-size:11.5px; color:#6b6b67;">опыта</div>
+  <section id="services" aria-labelledby="services-h">
+    <div class="wrap services-inner">
+      <div class="section-head">
+        <h2 id="services-h">Услуги</h2>
+        <p>Собственный сервисный центр в Санкт-Петербурге · ежедневно 09:00–22:00</p>
+      </div>
+
+      <div class="filter-tabs" role="group" aria-label="Фильтр услуг по категории" id="filterTabs"></div>
+      <p class="filter-status" role="status" aria-live="polite" id="filterStatus"></p>
+
+      <div id="servicesList"></div>
+
+      <p class="svc-note">Также устанавливаем вентиляцию сидений, массаж и поясничный упор — стоимость по автомобилю.</p>
+    </div>
+  </section>
+
+  <section id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="why-h">Почему выбирают нас</h2></div>
+      <div class="why-grid">
+        <div class="feat-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l7 3v6c0 4.6-3 8.3-7 9-4-.7-7-4.4-7-9V5l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg>
+          <h3>Гарантия 12 месяцев</h3>
+          <p>На всю установку и ремонт</p>
+        </div>
+        <div class="feat-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18"></path></svg>
+          <h3>Честная цена</h3>
+          <p>Без скрытых доплат</p>
+        </div>
+        <div class="feat-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a4.2 4.2 0 0 0-6.7-1L12 5.7l-2.1-2a4.2 4.2 0 1 0-5.7 6.1L12 18l7.8-8.1a4.2 4.2 0 0 0 1-5.3z"></path></svg>
+          <h3>Материалы</h3>
+          <p>Только проверенное качество</p>
+        </div>
+        <div class="feat-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"></path></svg>
+          <h3>Проверка электрики</h3>
+          <p>До и после каждой работы</p>
+        </div>
+        <div class="feat-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2"></rect></svg>
+          <h3>Видеонаблюдение</h3>
+          <p>Камера в ремонтной зоне</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" aria-labelledby="reviews-h">
+    <div class="wrap">
+      <div class="section-head-row">
+        <h2 id="reviews-h">Отзывы</h2>
+        <span style="font-size:14px; color:var(--text-faint);">5.0 из 5 · 9 отзывов на Avito</span>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <span class="review-quote" aria-hidden="true">"</span>
+          <p class="review-text">«Спасибо огромное Алексею. Быстро и качественно сделал работу. Реставрацию водительского сидения. Ещё раз огромное спасибо.»</p>
+          <p class="review-meta">Александр · 7 августа</p>
+        </div>
+        <div class="review-card">
+          <span class="review-quote" aria-hidden="true">"</span>
+          <p class="review-text">«Обратился с установкой поясничного упора в новое авто. Сделали быстро и качественно. Очень был рад тому, как общаются с клиентами.»</p>
+          <p class="review-meta">Руслан Гусейнов · 22 июля</p>
+        </div>
+        <div class="review-card">
+          <span class="review-quote" aria-hidden="true">"</span>
+          <p class="review-text">«Всё хорошо, спасибо.»</p>
+          <p class="review-meta">Максим · 30 июля</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="faq-h">Частые вопросы</h2></div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Как записаться на услугу?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </summary>
+          <p class="faq-answer">Через сообщения на Avito — отвечаем в течение часа и согласуем удобное время.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Даёте ли вы гарантию на работы?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </summary>
+          <p class="faq-answer">Да, на всю установку и ремонт действует гарантия 12 месяцев.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Можно приехать со своими запчастями?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </summary>
+          <p class="faq-answer">Нет, мы работаем со своими проверенными материалами — это часть гарантии на результат.</p>
+        </details>
+        <details class="faq-item">
+          <summary>С какими автомобилями вы работаете?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </summary>
+          <p class="faq-answer">С любым сегментом — от бюджетных моделей до премиальных.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Есть ли скрытые доплаты?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </summary>
+          <p class="faq-answer">Нет — стоимость называем заранее и не меняем её в процессе работы.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Где вы находитесь и как работаете?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </summary>
+          <p class="faq-answer">Санкт-Петербург, Плесецкая ул., 10. Работаем ежедневно с 09:00 до 22:00.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" aria-labelledby="contacts-h">
+    <div class="wrap">
+      <div class="contact-inner">
+        <h2 id="contacts-h">Готовы обновить салон?</h2>
+        <p>Оставьте заявку или напишите нам напрямую в Avito — отвечаем около часа.</p>
+
+        <form class="lead-form" id="leadForm" novalidate>
+          <div class="form-row" id="rowName">
+            <label for="fName">Имя</label>
+            <input type="text" id="fName" name="name" autocomplete="name" placeholder="Как к вам обращаться">
+            <p class="field-error" id="errName">Пожалуйста, укажите имя</p>
           </div>
-          <div>
-            <div style="font-size:20px; font-weight:700; color:#f2f2f0;">12 мес</div>
-            <div style="margin-top:3px; font-size:11.5px; color:#6b6b67;">гарантия</div>
+          <div class="form-row" id="rowPhone">
+            <label for="fPhone">Телефон</label>
+            <input type="tel" id="fPhone" name="phone" autocomplete="tel" placeholder="+7 900 000-00-00">
+            <p class="field-error" id="errPhone">Введите телефон в формате +7 900 000-00-00</p>
           </div>
-          <div>
-            <div style="font-size:20px; font-weight:700; color:#f2f2f0;">2022</div>
-            <div style="margin-top:3px; font-size:11.5px; color:#6b6b67;">на Avito с</div>
+          <div class="form-row">
+            <label for="fService">Услуга</label>
+            <select id="fService" name="service">
+              <option value="">Не выбрано / другое</option>
+              <option>Подогрев сидений</option>
+              <option>Анатомия сидений</option>
+              <option>Оклейка плёнкой</option>
+              <option>Контурная подсветка</option>
+              <option>Перетяжка салона</option>
+              <option>Тюнинг салона</option>
+              <option>Перетяжка руля</option>
+              <option>Шумоизоляция</option>
+            </select>
           </div>
-          <div>
-            <div style="font-size:20px; font-weight:700; color:#f2f2f0;">СПб</div>
-            <div style="margin-top:3px; font-size:11.5px; color:#6b6b67;">сервис-центр</div>
+          <div class="form-row">
+            <label for="fMsg">Комментарий</label>
+            <textarea id="fMsg" name="message" placeholder="Марка авто, что хотите сделать..."></textarea>
           </div>
+          <div class="form-submit-row">
+            <button type="submit" class="btn" id="submitBtn">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="btn-label">Оставить заявку</span>
+            </button>
+          </div>
+          <p class="form-note">Отправляя заявку, вы соглашаетесь на обработку данных для связи с вами.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess" role="status">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>
+          <h3>Заявка принята</h3>
+          <p>Мы свяжемся с вами в ближайшее время. Для самого быстрого ответа также можно написать в <a href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/ustanovka_i_remont_podogreva_sideniy_avtomobilya_8273491328">Avito-сообщения</a>.</p>
         </div>
       </div>
 
+      <div class="contacts-grid">
+        <div>
+          <div class="label">Адрес</div>
+          <div class="value">Санкт-Петербург, Плесецкая ул., 10</div>
+        </div>
+        <div>
+          <div class="label">Часы работы</div>
+          <div class="value">Ежедневно, 09:00–22:00</div>
+        </div>
+        <div>
+          <div class="label">Запись</div>
+          <div class="value">Через сообщения на Avito</div>
+        </div>
+      </div>
     </div>
+  </section>
+
+</main>
+
+<footer class="site-footer-bottom">
+  Alexey · Автостудия интерьера · Санкт-Петербург
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle" id="modalPanel">
+    <button class="modal-close" id="modalCloseBtn" aria-label="Закрыть">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+    </button>
+    <p class="modal-num" id="modalNum"></p>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <p class="modal-price" id="modalPrice"></p>
+    <p class="modal-detail" id="modalDetail"></p>
+    <a class="btn" id="modalCta" href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/ustanovka_i_remont_podogreva_sideniy_avtomobilya_8273491328">Записаться на эту услугу</a>
   </div>
-
-  <!-- SERVICES -->
-  <div id="services" style="position:relative; border-top:1px solid rgba(255,255,255,0.09); padding:130px clamp(24px,6vw,72px);">
-    <div style="max-width:980px; margin:0 auto;">
-      <div style="margin-bottom:60px;">
-        <h2 style="font-size:clamp(30px,3.4vw,42px); font-weight:800; letter-spacing:-0.02em; color:#f2f2f0;">Услуги</h2>
-        <p style="margin-top:14px; font-size:15px; color:#8a8a86;">Собственный сервисный центр в Санкт-Петербурге · ежедневно 09:00–22:00</p>
-      </div>
-
-      <div id="services-list"></div>
-
-      <p style="margin-top:32px; font-size:13px; line-height:1.6; color:#6b6b67;">Также устанавливаем вентиляцию сидений, массаж и поясничный упор — стоимость по автомобилю.</p>
-    </div>
-  </div>
-
-  <!-- WHY CHOOSE US -->
-  <div id="why" style="position:relative; border-top:1px solid rgba(255,255,255,0.09); padding:120px clamp(24px,6vw,72px);">
-    <div style="max-width:1160px; margin:0 auto;">
-      <h2 style="font-size:clamp(30px,3.4vw,42px); font-weight:800; letter-spacing:-0.02em; color:#f2f2f0; margin-bottom:60px;">Почему выбирают нас</h2>
-      <div class="why-grid" style="display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:32px;">
-
-        <div class="feat-item">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 3v6c0 4.6-3 8.3-7 9-4-.7-7-4.4-7-9V5l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg>
-          <h3 style="margin-top:18px; font-size:14px; font-weight:600; color:#f2f2f0;">Гарантия 12 месяцев</h3>
-          <p style="margin-top:6px; font-size:12.5px; line-height:1.5; color:#6b6b67;">На всю установку и ремонт</p>
-        </div>
-
-        <div class="feat-item">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18"></path></svg>
-          <h3 style="margin-top:18px; font-size:14px; font-weight:600; color:#f2f2f0;">Честная цена</h3>
-          <p style="margin-top:6px; font-size:12.5px; line-height:1.5; color:#6b6b67;">Без скрытых доплат</p>
-        </div>
-
-        <div class="feat-item">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a4.2 4.2 0 0 0-6.7-1L12 5.7l-2.1-2a4.2 4.2 0 1 0-5.7 6.1L12 18l7.8-8.1a4.2 4.2 0 0 0 1-5.3z"></path></svg>
-          <h3 style="margin-top:18px; font-size:14px; font-weight:600; color:#f2f2f0;">Материалы</h3>
-          <p style="margin-top:6px; font-size:12.5px; line-height:1.5; color:#6b6b67;">Только проверенное качество</p>
-        </div>
-
-        <div class="feat-item">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"></path></svg>
-          <h3 style="margin-top:18px; font-size:14px; font-weight:600; color:#f2f2f0;">Проверка электрики</h3>
-          <p style="margin-top:6px; font-size:12.5px; line-height:1.5; color:#6b6b67;">До и после каждой работы</p>
-        </div>
-
-        <div class="feat-item">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2"></rect></svg>
-          <h3 style="margin-top:18px; font-size:14px; font-weight:600; color:#f2f2f0;">Видеонаблюдение</h3>
-          <p style="margin-top:6px; font-size:12.5px; line-height:1.5; color:#6b6b67;">Камера в ремонтной зоне</p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- REVIEWS -->
-  <div id="reviews" style="position:relative; border-top:1px solid rgba(255,255,255,0.09); padding:120px clamp(24px,6vw,72px);">
-    <div style="max-width:1100px; margin:0 auto;">
-      <div style="display:flex; align-items:baseline; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:60px;">
-        <h2 style="font-size:clamp(30px,3.4vw,42px); font-weight:800; letter-spacing:-0.02em; color:#f2f2f0;">Отзывы</h2>
-        <span style="font-size:14px; color:#6b6b67;">5.0 из 5 · 9 отзывов на Avito</span>
-      </div>
-
-      <div class="reviews-grid" style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0;">
-        <div style="padding:0 28px 0 0; display:flex; flex-direction:column; gap:18px;">
-          <span style="font-size:30px; font-weight:800; color:var(--accent); line-height:1;">"</span>
-          <p style="font-size:15px; line-height:1.65; color:#b8b8b4;">«Спасибо огромное Алексею. Быстро и качественно сделал работу. Реставрацию водительского сидения. Ещё раз огромное спасибо.»</p>
-          <div style="font-size:13px; color:#6b6b67;">Александр · 7 августа</div>
-        </div>
-        <div style="padding:0 28px; border-left:1px solid rgba(255,255,255,0.09); border-right:1px solid rgba(255,255,255,0.09); display:flex; flex-direction:column; gap:18px;">
-          <span style="font-size:30px; font-weight:800; color:var(--accent); line-height:1;">"</span>
-          <p style="font-size:15px; line-height:1.65; color:#b8b8b4;">«Обратился с установкой поясничного упора в новое авто. Сделали быстро и качественно. Очень был рад тому, как общаются с клиентами.»</p>
-          <div style="font-size:13px; color:#6b6b67;">Руслан Гусейнов · 22 июля</div>
-        </div>
-        <div style="padding:0 0 0 28px; display:flex; flex-direction:column; gap:18px;">
-          <span style="font-size:30px; font-weight:800; color:var(--accent); line-height:1;">"</span>
-          <p style="font-size:15px; line-height:1.65; color:#b8b8b4;">«Всё хорошо, спасибо.»</p>
-          <div style="font-size:13px; color:#6b6b67;">Максим · 30 июля</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CONTACT / FOOTER -->
-  <div id="contacts" style="position:relative; border-top:1px solid rgba(255,255,255,0.09); padding:130px clamp(24px,6vw,72px) 0;">
-    <div style="max-width:560px; margin:0 auto; text-align:center;">
-      <h2 style="font-size:clamp(30px,3.8vw,46px); font-weight:800; letter-spacing:-0.02em; color:#f2f2f0; line-height:1.1;">Готовы обновить салон?</h2>
-      <p style="margin-top:16px; font-size:16px; line-height:1.6; color:#8a8a86;">Напишите нам — отвечаем около часа и подбираем решение под ваш автомобиль.</p>
-      <a class="cta-primary" href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/ustanovka_i_remont_podogreva_sideniy_avtomobilya_8273491328" style="display:inline-flex; align-items:center; margin-top:36px; padding:16px 32px; background:var(--accent); color:#0a0a0a; font-weight:600; font-size:15px;">Написать в Avito</a>
-    </div>
-
-    <div class="contacts-grid" style="max-width:1160px; margin:110px auto 0; padding-top:36px; padding-bottom:36px; border-top:1px solid rgba(255,255,255,0.09); display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; text-align:center;">
-      <div>
-        <div style="font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#54544f; margin-bottom:8px;">Адрес</div>
-        <div style="font-size:13.5px; color:#8a8a86;">Санкт-Петербург, Плесецкая ул., 10</div>
-      </div>
-      <div>
-        <div style="font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#54544f; margin-bottom:8px;">Часы работы</div>
-        <div style="font-size:13.5px; color:#8a8a86;">Ежедневно, 09:00–22:00</div>
-      </div>
-      <div>
-        <div style="font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#54544f; margin-bottom:8px;">Запись</div>
-        <div style="font-size:13.5px; color:#8a8a86;">Через сообщения на Avito</div>
-      </div>
-    </div>
-
-    <div style="padding:28px 0 40px; text-align:center;">
-      <span style="font-size:12px; color:#54544f;">Alexey · Автостудия интерьера · Санкт-Петербург</span>
-    </div>
-  </div>
-
-  <!-- SERVICE DETAIL MODAL -->
-  <div id="modal-backdrop" class="modal-backdrop hidden" style="position:fixed; inset:0; z-index:100; background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; padding:24px;">
-    <div class="modal-panel" style="position:relative; width:100%; max-width:480px; max-height:86vh; overflow-y:auto; background:#111110; border:1px solid rgba(255,255,255,0.1); padding:40px;">
-      <button class="modal-close" id="modal-close-btn" aria-label="Закрыть" style="position:absolute; top:24px; right:24px;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f2f2f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
-      </button>
-      <span id="modal-num" style="font-size:12.5px; font-weight:600; color:#54544f;"></span>
-      <h3 id="modal-title" style="margin-top:12px; font-size:24px; font-weight:700; letter-spacing:-0.01em; color:#f2f2f0; padding-right:28px;"></h3>
-      <div id="modal-price" style="margin-top:10px; font-size:18px; font-weight:600; color:var(--accent);"></div>
-      <p id="modal-detail" style="margin-top:18px; font-size:14px; line-height:1.65; color:#8a8a86;"></p>
-      <a class="cta-primary" href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/ustanovka_i_remont_podogreva_sideniy_avtomobilya_8273491328" style="margin-top:28px; display:flex; align-items:center; justify-content:center; padding:14px 24px; background:var(--accent); color:#0a0a0a; font-weight:600; font-size:14px;">Записаться на эту услугу</a>
-    </div>
-  </div>
-
 </div>
 
 <script>
+(function () {
+  'use strict';
+
   var services = [
-    { id: 1, num: '01', title: 'Подогрев сидений', short: 'Установка и ремонт штатного подогрева', price: 'от 16 000 ₽', detail: 'Устанавливаем и ремонтируем подогрев сидений в любом автомобиле — от бюджетных моделей до премиальных. Делаем надёжно и без вреда для штатной электрики. Стоимость установки в 1 сиденье — 16 000 ₽, в 2 сиденья — 24 000 ₽.' },
-    { id: 2, num: '02', title: 'Анатомия сидений', short: 'Форма и наполнение под ваше тело', price: 'от 14 990 ₽', detail: 'Меняем форму и наполнение сидений индивидуально под ваше тело — для комфорта в долгих поездках и на каждый день. Подбираем плотность и профиль под ваш рост и посадку.' },
-    { id: 3, num: '03', title: 'Оклейка плёнкой', short: 'Защита кузова от сколов и царапин', price: 'от 30 000 ₽', detail: 'Оклеиваем кузов защитной плёнкой, которая принимает на себя сколы от гравия, мелкие царапины и повреждения ЛКП. Сохраняем внешний вид автомобиля надолго.' },
-    { id: 4, num: '04', title: 'Контурная подсветка', short: 'Цвет и режимы на ваш выбор', price: 'от 15 000 ₽', detail: 'Устанавливаем контурную подсветку салона по периметру — цвет, яркость и режимы подбираются под ваш вкус. Аккуратный монтаж без вреда для проводки автомобиля.' },
-    { id: 5, num: '05', title: 'Перетяжка салона', short: 'Сидения, двери, торпедо', price: 'от 5 000 ₽', detail: 'Перетягиваем сидения, дверные карты и торпедо кожей или алькантарой. Обновляем салон полностью или точечно — там, где заметнее всего износ.' },
-    { id: 6, num: '06', title: 'Тюнинг салона', short: 'Индивидуальные решения по стилю', price: 'от 5 000 ₽', detail: 'Разрабатываем индивидуальные решения по стилю и материалам салона — от акцентной прострочки до полной смены облицовки под ваш образ автомобиля.' },
-    { id: 7, num: '07', title: 'Перетяжка руля', short: 'Кожа или алькантара вручную', price: 'от 5 000 ₽', detail: 'Перетягиваем руль новой кожей или алькантарой с аккуратной ручной прошивкой. Руль становится приятнее на ощупь и выглядит как новый.' },
-    { id: 8, num: '08', title: 'Шумоизоляция', short: 'Меньше шума и вибраций в салоне', price: 'от 5 000 ₽', detail: 'Устанавливаем шумоизоляцию, которая снижает уровень шума двигателя, дороги и вибраций — в салоне становится заметно тише в городе и на трассе.' }
+    { id: 1, num: '01', title: 'Подогрев сидений', short: 'Установка и ремонт штатного подогрева', price: 'от 16 000 ₽', category: 'comfort', detail: 'Устанавливаем и ремонтируем подогрев сидений в любом автомобиле — от бюджетных моделей до премиальных. Делаем надёжно и без вреда для штатной электрики. Стоимость установки в 1 сиденье — 16 000 ₽, в 2 сиденья — 24 000 ₽.' },
+    { id: 2, num: '02', title: 'Анатомия сидений', short: 'Форма и наполнение под ваше тело', price: 'от 14 990 ₽', category: 'comfort', detail: 'Меняем форму и наполнение сидений индивидуально под ваше тело — для комфорта в долгих поездках и на каждый день. Подбираем плотность и профиль под ваш рост и посадку.' },
+    { id: 3, num: '03', title: 'Оклейка плёнкой', short: 'Защита кузова от сколов и царапин', price: 'от 30 000 ₽', category: 'protection', detail: 'Оклеиваем кузов защитной плёнкой, которая принимает на себя сколы от гравия, мелкие царапины и повреждения ЛКП. Сохраняем внешний вид автомобиля надолго.' },
+    { id: 4, num: '04', title: 'Контурная подсветка', short: 'Цвет и режимы на ваш выбор', price: 'от 15 000 ₽', category: 'style', detail: 'Устанавливаем контурную подсветку салона по периметру — цвет, яркость и режимы подбираются под ваш вкус. Аккуратный монтаж без вреда для проводки автомобиля.' },
+    { id: 5, num: '05', title: 'Перетяжка салона', short: 'Сидения, двери, торпедо', price: 'от 5 000 ₽', category: 'style', detail: 'Перетягиваем сидения, дверные карты и торпедо кожей или алькантарой. Обновляем салон полностью или точечно — там, где заметнее всего износ.' },
+    { id: 6, num: '06', title: 'Тюнинг салона', short: 'Индивидуальные решения по стилю', price: 'от 5 000 ₽', category: 'style', detail: 'Разрабатываем индивидуальные решения по стилю и материалам салона — от акцентной прострочки до полной смены облицовки под ваш образ автомобиля.' },
+    { id: 7, num: '07', title: 'Перетяжка руля', short: 'Кожа или алькантара вручную', price: 'от 5 000 ₽', category: 'style', detail: 'Перетягиваем руль новой кожей или алькантарой с аккуратной ручной прошивкой. Руль становится приятнее на ощупь и выглядит как новый.' },
+    { id: 8, num: '08', title: 'Шумоизоляция', short: 'Меньше шума и вибраций в салоне', price: 'от 5 000 ₽', category: 'comfort', detail: 'Устанавливаем шумоизоляцию, которая снижает уровень шума двигателя, дороги и вибраций — в салоне становится заметно тише в городе и на трассе.' }
   ];
 
-  var list = document.getElementById('services-list');
+  var categories = [
+    { id: 'all', label: 'Все' },
+    { id: 'comfort', label: 'Комфорт' },
+    { id: 'style', label: 'Стиль и тюнинг' },
+    { id: 'protection', label: 'Защита' }
+  ];
+
+  /* ---------- Render services ---------- */
+  var listEl = document.getElementById('servicesList');
   services.forEach(function (s) {
-    var row = document.createElement('div');
+    var row = document.createElement('button');
+    row.type = 'button';
     row.className = 'svc-row';
-    row.style.cssText = 'display:flex; align-items:center; justify-content:space-between; gap:24px; padding:26px 0; border-bottom:1px solid rgba(255,255,255,0.09);';
+    row.dataset.category = s.category;
+    row.setAttribute('aria-haspopup', 'dialog');
     row.innerHTML =
-      '<div style="display:flex; align-items:center; gap:26px; min-width:0;">' +
-        '<span class="svc-num" style="font-size:26px; font-weight:800; color:#39393a; flex-shrink:0; width:44px; letter-spacing:-0.01em;">' + s.num + '</span>' +
-        '<div>' +
-          '<h3 style="font-size:17px; font-weight:600; color:#f2f2f0;">' + s.title + '</h3>' +
-          '<p style="margin-top:4px; font-size:13px; line-height:1.5; color:#6b6b67;">' + s.short + '</p>' +
-        '</div>' +
-      '</div>' +
-      '<div style="display:flex; align-items:center; gap:10px; flex-shrink:0;">' +
-        '<span style="font-size:15px; font-weight:600; color:#f2f2f0; white-space:nowrap;">' + s.price + '</span>' +
-        '<svg class="svc-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8a8a86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>' +
-      '</div>';
+      '<span class="svc-left">' +
+        '<span class="svc-num">' + s.num + '</span>' +
+        '<span>' +
+          '<span class="svc-title">' + s.title + '</span>' +
+          '<span class="svc-desc">' + s.short + '</span>' +
+        '</span>' +
+      '</span>' +
+      '<span class="svc-right">' +
+        '<span class="svc-price">' + s.price + '</span>' +
+        '<svg class="svc-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ab9f8e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>' +
+      '</span>';
     row.addEventListener('click', function () { openModal(s); });
-    list.appendChild(row);
+    listEl.appendChild(row);
   });
 
-  var backdrop = document.getElementById('modal-backdrop');
-  function openModal(s) {
-    document.getElementById('modal-num').textContent = s.num;
-    document.getElementById('modal-title').textContent = s.title;
-    document.getElementById('modal-price').textContent = s.price;
-    document.getElementById('modal-detail').textContent = s.detail;
-    backdrop.classList.remove('hidden');
+  /* ---------- Filter tabs ---------- */
+  var tabsEl = document.getElementById('filterTabs');
+  var statusEl = document.getElementById('filterStatus');
+  categories.forEach(function (c, i) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'filter-tab';
+    btn.textContent = c.label;
+    btn.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+    btn.addEventListener('click', function () { applyFilter(c.id, btn); });
+    tabsEl.appendChild(btn);
+  });
+
+  function applyFilter(categoryId, activeBtn) {
+    Array.prototype.forEach.call(tabsEl.children, function (b) { b.setAttribute('aria-pressed', 'false'); });
+    activeBtn.setAttribute('aria-pressed', 'true');
+    var rows = listEl.querySelectorAll('.svc-row');
+    var visible = 0;
+    rows.forEach(function (row) {
+      var match = categoryId === 'all' || row.dataset.category === categoryId;
+      row.classList.toggle('is-hidden', !match);
+      if (match) visible++;
+    });
+    statusEl.textContent = 'Показано услуг: ' + visible;
   }
-  function closeModal() { backdrop.classList.add('hidden'); }
-  document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+  statusEl.textContent = 'Показано услуг: ' + services.length;
+
+  /* ---------- Modal ---------- */
+  var backdrop = document.getElementById('modalBackdrop');
+  var panel = document.getElementById('modalPanel');
+  var lastTrigger = null;
+
+  function openModal(s) {
+    document.getElementById('modalNum').textContent = s.num;
+    document.getElementById('modalTitle').textContent = s.title;
+    document.getElementById('modalPrice').textContent = s.price;
+    document.getElementById('modalDetail').textContent = s.detail;
+    lastTrigger = document.activeElement;
+    backdrop.classList.add('is-open');
+    document.getElementById('modalCloseBtn').focus();
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    backdrop.classList.remove('is-open');
+    document.body.style.overflow = '';
+    if (lastTrigger) lastTrigger.focus();
+  }
+  document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
   backdrop.addEventListener('click', function (e) { if (e.target === backdrop) closeModal(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && backdrop.classList.contains('is-open')) closeModal();
+  });
+
+  /* ---------- Mobile menu ---------- */
+  var menuToggle = document.getElementById('menuToggle');
+  var mobileMenu = document.getElementById('mobileMenu');
+  function closeMenu() {
+    menuToggle.setAttribute('aria-expanded', 'false');
+    mobileMenu.classList.remove('is-open');
+    menuToggle.setAttribute('aria-label', 'Открыть меню');
+  }
+  function openMenu() {
+    menuToggle.setAttribute('aria-expanded', 'true');
+    mobileMenu.classList.add('is-open');
+    menuToggle.setAttribute('aria-label', 'Закрыть меню');
+  }
+  menuToggle.addEventListener('click', function () {
+    if (menuToggle.getAttribute('aria-expanded') === 'true') closeMenu(); else openMenu();
+  });
+  document.querySelectorAll('[data-mobile-link]').forEach(function (a) {
+    a.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') closeMenu();
+  });
+
+  /* ---------- Scroll-spy active nav link ---------- */
+  var navLinks = document.querySelectorAll('[data-nav-link]');
+  var sections = ['services', 'why', 'reviews', 'faq', 'contacts'].map(function (id) { return document.getElementById(id); });
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var id = entry.target.id;
+      navLinks.forEach(function (a) {
+        if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(function (s) { if (s) spy.observe(s); });
+
+  /* ---------- Lead form ---------- */
+  var form = document.getElementById('leadForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var successEl = document.getElementById('formSuccess');
+  var phonePattern = /^[+]?[\d\s().-]{10,}$/;
+
+  function setError(rowId, has) {
+    document.getElementById(rowId).classList.toggle('has-error', has);
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('fName').value.trim();
+    var phone = document.getElementById('fPhone').value.trim();
+    var nameOk = name.length > 1;
+    var phoneOk = phonePattern.test(phone);
+
+    setError('rowName', !nameOk);
+    setError('rowPhone', !phoneOk);
+    document.getElementById('fName').setAttribute('aria-invalid', String(!nameOk));
+    document.getElementById('fPhone').setAttribute('aria-invalid', String(!phoneOk));
+
+    if (!nameOk || !phoneOk) {
+      var firstInvalid = !nameOk ? document.getElementById('fName') : document.getElementById('fPhone');
+      firstInvalid.focus();
+      return;
+    }
+
+    submitBtn.classList.add('is-loading');
+    submitBtn.disabled = true;
+    submitBtn.querySelector('.btn-label').textContent = 'Отправляем…';
+
+    window.setTimeout(function () {
+      submitBtn.classList.remove('is-loading');
+      submitBtn.disabled = false;
+      submitBtn.querySelector('.btn-label').textContent = 'Оставить заявку';
+      form.classList.add('is-hidden');
+      successEl.classList.add('is-visible');
+      successEl.focus && successEl.setAttribute('tabindex', '-1');
+      successEl.focus();
+    }, 900);
+  });
+
+  ['fName', 'fPhone'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', function () {
+      var rowId = id === 'fName' ? 'rowName' : 'rowPhone';
+      document.getElementById(rowId).classList.remove('has-error');
+    });
+  });
+})();
 </script>
 
 </body>
